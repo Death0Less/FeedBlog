@@ -8,11 +8,12 @@ import java.util.List;
 
 public interface CommentService {
 
-    void add(Comment comment);
-    void deleteById(long id);
+    boolean add(Comment comment);
+    boolean deleteById(long id);
     Comment findById(long id);
     List<Comment> findAll();
     boolean containsById(long id);
+    boolean containsByContent(String content);
     List<Comment> findAllByUser(User user);
     List<Comment> findAllByPost(Post post);
 

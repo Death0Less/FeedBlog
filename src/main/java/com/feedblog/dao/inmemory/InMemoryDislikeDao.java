@@ -2,10 +2,12 @@ package com.feedblog.dao.inmemory;
 
 import com.feedblog.dao.DislikeDao;
 import com.feedblog.model.Dislike;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class InMemoryDislikeDao implements DislikeDao {
 
     private final List<Dislike> dislikeList = new ArrayList<>();

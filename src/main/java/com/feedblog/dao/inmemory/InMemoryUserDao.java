@@ -2,10 +2,12 @@ package com.feedblog.dao.inmemory;
 
 import com.feedblog.dao.UserDao;
 import com.feedblog.model.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class InMemoryUserDao implements UserDao {
 
     private final List<User> userList = new ArrayList<>();

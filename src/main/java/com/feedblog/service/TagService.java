@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface TagService {
 
-    void add(Tag tag);
-    void deleteById(long id);
-    void deleteByName(String name);
+    boolean add(Tag tag);
+    boolean deleteById(long id);
+    boolean deleteByName(String name);
     Tag findById(long id);
     Tag findByName(String name);
     List<Tag> findAll();

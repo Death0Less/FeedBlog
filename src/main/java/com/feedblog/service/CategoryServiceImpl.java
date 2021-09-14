@@ -1,50 +1,70 @@
 package com.feedblog.service;
 
+import com.feedblog.dao.CategoryDao;
 import com.feedblog.model.Category;
-
+import org.springframework.stereotype.Service;
 import java.util.List;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
-    private CategoryService categoryService = new CategoryServiceImpl();
+    private final CategoryDao categoryDao;
 
-    @Override
-    public void add(Category category) {
-        categoryService.add(category);
+    public CategoryServiceImpl(CategoryDao categoryDao) {
+        this.categoryDao = categoryDao;
     }
 
     @Override
-    public void deleteById(long id) {
-        categoryService.deleteById(id);
+    public boolean add(Category category) {
+        if (containsByTitle(category.getCategoryName())) {
+            return false;
+        } else {
+            categoryDao.add(category);
+            return true;
+        }
+    }
+
+
+    @Override
+    public boolean deleteById(long id) {
+        if (containsById(id)) {
+            categoryDao.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public void deleteByTile(String title) {
-        categoryService.deleteByTile(title);
+    public boolean deleteByTitle(String title) {
+        if (containsByTitle(title)) {
+            categoryDao.deleteByTitle(title);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Category findById(long id) {
-        return categoryService.findById(id);
+        return categoryDao.findById(id);
     }
 
     @Override
     public Category findByTitle(String title) {
-        return categoryService.findByTitle(title);
+        return categoryDao.findByTitle(title);
     }
 
     @Override
     public List<Category> findAll() {
-        return categoryService.findAll();
+        return categoryDao.findAll();
     }
 
     @Override
     public boolean containsById(long id) {
-        return categoryService.containsById(id);
+        return categoryDao.containsById(id);
     }
 
     @Override
     public boolean containsByTitle(String title) {
-        return categoryService.containsByTitle(title);
+        return categoryDao.containsByTitle(title);
     }
 }

@@ -5,10 +5,12 @@ import com.feedblog.model.Category;
 import com.feedblog.model.Post;
 import com.feedblog.model.Tag;
 import com.feedblog.model.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class InMemoryPostDao implements PostDao {
 
     private final List<Post> postList = new ArrayList<>();

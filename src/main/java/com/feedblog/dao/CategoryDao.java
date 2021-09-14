@@ -8,7 +8,7 @@ public interface CategoryDao {
 
     void add(Category category);
     void deleteById(long id);
-    void deleteByTile(String title);
+    void deleteByTitle(String title);
     Category findById(long id);
     Category findByTitle(String title);
     List<Category> findAll();

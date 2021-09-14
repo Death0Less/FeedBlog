@@ -2,10 +2,12 @@ package com.feedblog.dao.inmemory;
 
 import com.feedblog.dao.CategoryDao;
 import com.feedblog.model.Category;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class InMemoryCategoryDao implements CategoryDao {
 
     private final List<Category> categoryList = new ArrayList<>();
@@ -28,7 +30,7 @@ public class InMemoryCategoryDao implements CategoryDao {
     }
 
     @Override
-    public void deleteByTile(String title) {
+    public void deleteByTitle(String title) {
         for (Category category : categoryList) {
             if (category.getCategoryName().equals(title)) {
                 categoryList.remove(category);

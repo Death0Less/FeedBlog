@@ -2,10 +2,12 @@ package com.feedblog.dao.inmemory;
 
 import com.feedblog.dao.TagDao;
 import com.feedblog.model.Tag;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class InMemoryTagDao implements TagDao {
 
     private final List<Tag> tagList = new ArrayList<>();

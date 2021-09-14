@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface CategoryService {
 
-    void add(Category category);
-    void deleteById(long id);
-    void deleteByTile(String title);
+    boolean add(Category category);
+    boolean deleteById(long id);
+    boolean deleteByTitle(String title);
     Category findById(long id);
     Category findByTitle(String title);
     List<Category> findAll();

@@ -40,12 +40,12 @@
                     Category
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <a class="dropdown-item" href="/category/save">Save</a>
-                    <a class="dropdown-item" href="/category/deleteById">Delete by id</a>
-                    <a class="dropdown-item" href="/category/deleteByTitle">Delete by title</a>
-                    <a class="dropdown-item" href="/category/getAll">Get all</a>
-                    <a class="dropdown-item" href="/category/getById">Get by id</a>
-                    <a class="dropdown-item" href="/category/getByTitle">Get by title</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/categories/save">Save</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/categories/deleteById">Delete by id</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/categories/deleteByTitle">Delete by title</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/categories/findAll">Find all</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/categories/findById">Find by id</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/categories/findByTitle">Find by title</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -54,12 +54,12 @@
                     Tag
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                    <a class="dropdown-item" href="/tag/save">Save</a>
-                    <a class="dropdown-item" href="/tag/deleteById">Delete by id</a>
-                    <a class="dropdown-item" href="/tag/deleteByName">Delete by name</a>
-                    <a class="dropdown-item" href="/tag/getAll">Get all</a>
-                    <a class="dropdown-item" href="/tag/getById">Get by id</a>
-                    <a class="dropdown-item" href="/tag/getByName">Get by name</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/tags/save">Save</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/tags/deleteById">Delete by id</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/tags/deleteByName">Delete by name</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/tags/findAll">Find all</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/tags/findById">Find by id</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/tags/findByName">Find by name</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -85,11 +85,11 @@
                     Comment
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown5">
-                    <a class="dropdown-item" href="/comment/deleteById">Delete by id</a>
-                    <a class="dropdown-item" href="/comment/getAll">Get all</a>
-                    <a class="dropdown-item" href="/comment/getAllByPost">Get all by post</a>
-                    <a class="dropdown-item" href="/comment/getAllByUser">Get all by user</a>
-                    <a class="dropdown-item" href="/comment/getById">Get by id</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/comment/deleteById">Delete by id</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/comment/getAll">Get all</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/comment/getAllByPost">Get all by post</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/comment/getAllByUser">Get all by user</a>
+                    <a class="dropdown-item" href="/FeedBlog_war/comment/getById">Get by id</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
