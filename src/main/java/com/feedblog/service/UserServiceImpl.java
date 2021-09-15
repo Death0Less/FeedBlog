@@ -1,65 +1,72 @@
 package com.feedblog.service;
 
+import com.feedblog.dao.UserDao;
 import com.feedblog.model.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
 
-    private UserService userService = new UserServiceImpl();
+    private final UserDao userDao;
+
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Override
     public void add(User user) {
-        userService.add(user);
+        userDao.add(user);
     }
 
     @Override
     public void deleteById(long id) {
-        userService.deleteById(id);
+        userDao.deleteById(id);
     }
 
     @Override
     public void deleteByName(String name) {
-        userService.deleteByName(name);
+        userDao.deleteByName(name);
     }
 
     @Override
     public User findById(long id) {
-        return userService.findById(id);
+        return userDao.findById(id);
     }
 
     @Override
     public User findByName(String name) {
-        return userService.findByName(name);
+        return userDao.findByName(name);
     }
 
     @Override
     public List<User> findAll() {
-        return userService.findAll();
+        return userDao.findAll();
     }
 
     @Override
     public boolean containsById(long id) {
-        return userService.containsById(id);
+        return userDao.containsById(id);
     }
 
     @Override
     public boolean containsByName(String name) {
-        return userService.containsByName(name);
+        return userDao.containsByName(name);
     }
 
     @Override
     public void updateUserByName(long id, String name) {
-        userService.updateUserByName(id, name);
+        userDao.updateUserByName(id, name);
     }
 
     @Override
     public void updateByEmail(long id, String email) {
-        userService.updateByEmail(id, email);
+        userDao.updateByEmail(id, email);
     }
 
     @Override
     public void updateByPassword(long id, String password) {
-        userService.updateByPassword(id, password);
+        userDao.updateByPassword(id, password);
     }
 }

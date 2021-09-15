@@ -4,10 +4,12 @@ import com.feedblog.dao.CommentDao;
 import com.feedblog.model.Comment;
 import com.feedblog.model.Post;
 import com.feedblog.model.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class InMemoryCommentDao implements CommentDao {
 
     private final List<Comment> commentList = new ArrayList<>();
@@ -43,6 +45,16 @@ public class InMemoryCommentDao implements CommentDao {
     @Override
     public List<Comment> findAll() {
         return commentList;
+    }
+
+    @Override
+    public boolean containsByContent(String content) {
+        for (Comment comment : commentList) {
+            if (comment.getContent().equals(content)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

@@ -14,4 +14,16 @@ public class Tag {
     private long id;
 
     private String tagName;
+
+    public Tag(String tagName) {
+        this.tagName = tagName;
+    }
+
+    @Override
+    public String toString() {
+        return "Tag{" +
+                "id=" + id +
+                ", tagName='" + tagName + '\'' +
+                '}';
+    }
 }

@@ -20,4 +20,17 @@ public class Comment {
 
     private Post post;
 
+    public Comment(String content) {
+        this.content = content;;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", user=" + user +
+                ", post=" + post +
+                '}';
+    }
 }

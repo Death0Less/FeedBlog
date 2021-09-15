@@ -2,10 +2,12 @@ package com.feedblog.dao.inmemory;
 
 import com.feedblog.dao.LikeDao;
 import com.feedblog.model.Like;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class InMemoryLikeDao implements LikeDao {
 
     private final List<Like> likeList = new ArrayList<>();

@@ -1,50 +1,70 @@
 package com.feedblog.service;
 
+import com.feedblog.dao.TagDao;
 import com.feedblog.model.Tag;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TagServiceImpl implements TagService {
 
-    private TagService tagService = new TagServiceImpl();
+    private final TagDao tagDao;
 
-    @Override
-    public void add(Tag tag) {
-        tagService.add(tag);
+    public TagServiceImpl(TagDao tagDao) {
+        this.tagDao = tagDao;
     }
 
     @Override
-    public void deleteById(long id) {
-        tagService.deleteById(id);
+    public boolean add(Tag tag) {
+        if (containsByName(tag.getTagName())) {
+            return false;
+        } else {
+            tagDao.add(tag);
+            return true;
+        }
     }
 
     @Override
-    public void deleteByName(String name) {
-        tagService.deleteByName(name);
+    public boolean deleteById(long id) {
+        if (containsById(id)) {
+            tagDao.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteByName(String name) {
+        if (containsByName(name)) {
+            tagDao.deleteByName(name);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Tag findById(long id) {
-        return tagService.findById(id);
+        return tagDao.findById(id);
     }
 
     @Override
     public Tag findByName(String name) {
-        return tagService.findByName(name);
+        return tagDao.findByName(name);
     }
 
     @Override
     public List<Tag> findAll() {
-        return tagService.findAll();
+        return tagDao.findAll();
     }
 
     @Override
     public boolean containsById(long id) {
-        return tagService.containsById(id);
+        return tagDao.containsById(id);
     }
 
     @Override
     public boolean containsByName(String name) {
-        return tagService.containsByName(name);
+        return tagDao.containsByName(name);
     }
 }
