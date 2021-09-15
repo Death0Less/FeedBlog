@@ -17,7 +17,7 @@
 <div class="container">
     <form action="/FeedBlog_war/categories/save" method="post">
         <div class="form-group">
-            <label for="exampleInputSaveCategory1">Category</label>
+            <label for="exampleInputSaveCategory1">Save Category</label>
             <input name="categoryName" type="text" class="form-control" id="exampleInputSaveCategory1" placeholder="Category...">
         </div>
         <button type="submit" class="btn btn-primary">Save</button>

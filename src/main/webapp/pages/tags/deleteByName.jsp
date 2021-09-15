@@ -15,14 +15,14 @@
 <jsp:include page="../_header.jsp"/>
 
 <div class="container">
-    <form action="/tags/deleteByName">
+    <form action="/FeedBlog_war/tags/deleteByName" method="post">
         <div class="form-group">
-            <label for="exampleInputDeleteTagByName1">Name</label>
-            <input type="text" class="form-control" id="exampleInputDeleteTagByName1" placeholder="Enter name...">
+            <label for="exampleInputDeleteTagByName1">Delete By Name</label>
+            <input name="tagName" type="text" class="form-control" id="exampleInputDeleteTagByName1" placeholder="Enter name...">
         </div>
         <button type="submit" class="btn btn-primary">Delete</button>
     </form>
-    ${Message}
+    ${message}
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

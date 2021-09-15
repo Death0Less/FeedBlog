@@ -32,7 +32,7 @@ public class TagController {
         return "/tags/save";
     }
 
-    @DeleteMapping("/deleteById")
+    @PostMapping("/deleteById")
     public String deleteById(@RequestParam long id, Model model) {
         if (tagService.deleteById(id)) {
             model.addAttribute("message", "Delete is successfully done.");
@@ -43,11 +43,12 @@ public class TagController {
     }
 
     @GetMapping("/deleteById")
-    public String deleteById() {
+    public String deleteById(Model model) {
+        model.addAttribute("tags", tagService.findAll());
         return "/tags/deleteById";
     }
 
-    @DeleteMapping("/deleteByName")
+    @PostMapping("/deleteByName")
     public String deleteByName(@RequestParam String tagName, Model model) {
         if (tagService.deleteByName(tagName)) {
             model.addAttribute("message", "Delete is successfully done.");
@@ -94,7 +95,7 @@ public class TagController {
 
     @GetMapping("/findAll")
     public String findAll(Model model) {
-        model.addAttribute("message", tagService.findAll());
+        model.addAttribute("tags", tagService.findAll());
         return "/tags/findAll";
     }
 }

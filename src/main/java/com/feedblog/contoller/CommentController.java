@@ -67,7 +67,7 @@ public class CommentController {
 
     @GetMapping("/findAll")
     public String findAll(Model model) {
-        model.addAttribute("message", commentService.findAll());
+        model.addAttribute("comments", commentService.findAll());
         return "/comments/findAll";
     }
 

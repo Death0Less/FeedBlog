@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,14 +16,11 @@
 <jsp:include page="../_header.jsp"/>
 
 <div class="container">
-    <form action="/tags/findAll" method="get">
-        <div class="form-group">
-            <label for="exampleInputFindAllTag1">All</label>
-            <input type="text" class="form-control" id="exampleInputFindAllTag1" placeholder="">
-        </div>
-        <button type="submit" class="btn btn-primary">Find</button>
-    </form>
-    ${message}
+    <ul class="list-group list-group-flush">
+        <c:forEach items="${tags}" var="tag">
+            <li class="list-group-item">${tag}</li>
+        </c:forEach>
+    </ul>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

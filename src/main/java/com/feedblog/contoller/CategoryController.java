@@ -35,9 +35,9 @@ public class CategoryController {
     @PostMapping ("/deleteById")
     public String deleteById(@RequestParam long id, Model model) {
         if (categoryService.deleteById(id)) {
-            model.addAttribute("message", "DeleteById is successfully done.");
+            model.addAttribute("message", "Delete is successfully done.");
         } else {
-            model.addAttribute("message", "DeleteById is failed.");
+            model.addAttribute("message", "Delete is failed.");
         }
         return "/categories/deleteById";
     }
@@ -52,9 +52,9 @@ public class CategoryController {
     @PostMapping("/deleteByTitle")
     public String deleteByTitle(@RequestParam String categoryName, Model model) {
         if (categoryService.deleteByTitle(categoryName)) {
-            model.addAttribute("message", "DeleteByTitle is successfully done.");
+            model.addAttribute("message", "Delete is successfully done.");
         } else {
-            model.addAttribute("message", "DeleteByTitle is failed.");
+            model.addAttribute("message", "Delete is failed.");
         }
         return "/categories/deleteByTitle";
     }

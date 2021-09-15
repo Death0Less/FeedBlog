@@ -16,7 +16,7 @@
 <div class="container">
     <form action="/FeedBlog_war/categories/deleteByTitle" method="post">
         <div class="form-group">
-            <label for="exampleInputDeleteCategoryByTitle1">Title</label>
+            <label for="exampleInputDeleteCategoryByTitle1">Delete By Title</label>
             <input name="categoryName" type="text" class="form-control" id="exampleInputDeleteCategoryByTitle1" placeholder="Enter title...">
         </div>
         <button type="submit" class="btn btn-primary">Delete</button>
