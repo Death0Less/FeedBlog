@@ -24,5 +24,4 @@ public interface PostService {
     void deleteByCategory(Category category);
     Post findByTag(Tag tag);
     void deleteByTag(Tag tag);
-
 }

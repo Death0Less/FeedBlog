@@ -14,5 +14,4 @@ public interface CategoryService {
     List<Category> findAll();
     boolean containsById(long id);
     boolean containsByTitle(String title);
-
 }

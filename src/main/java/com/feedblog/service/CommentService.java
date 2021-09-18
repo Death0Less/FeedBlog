@@ -16,5 +16,4 @@ public interface CommentService {
     boolean containsByContent(String content);
     List<Comment> findAllByUser(User user);
     List<Comment> findAllByPost(Post post);
-
 }
