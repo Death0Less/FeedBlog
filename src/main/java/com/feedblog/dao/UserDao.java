@@ -16,7 +16,7 @@ public interface UserDao {
     boolean containsById(long id);
     boolean containsByName(String name);
 
-    void updateUserByName(long id, String name);
+    void updateByName(long id, String name);
     void updateByEmail(long id, String email);
     void updateByPassword(long id, String password);
 }

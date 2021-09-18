@@ -14,5 +14,4 @@ public interface TagService {
     List<Tag> findAll();
     boolean containsById(long id);
     boolean containsByName(String name);
-
 }

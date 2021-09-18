@@ -7,5 +7,4 @@ public interface DislikeService {
     void add(Dislike dislike);
     void deleteById(long id);
     int getCount();
-
 }

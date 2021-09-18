@@ -12,7 +12,7 @@ public class InMemoryUserDao implements UserDao {
 
     private final List<User> userList = new ArrayList<>();
 
-    private static long incId;
+    private static long incId = 1;
 
     @Override
     public void add(User user) {
@@ -86,7 +86,7 @@ public class InMemoryUserDao implements UserDao {
     }
 
     @Override
-    public void updateUserByName(long id, String name) {
+    public void updateByName(long id, String name) {
         for (User user : userList) {
             if (user.getId() == id) {
                 user.setName(name);

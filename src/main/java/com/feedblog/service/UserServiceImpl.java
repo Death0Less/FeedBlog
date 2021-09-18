@@ -1,6 +1,7 @@
 package com.feedblog.service;
 
 import com.feedblog.dao.UserDao;
+import com.feedblog.model.Role;
 import com.feedblog.model.User;
 import org.springframework.stereotype.Service;
 
@@ -16,18 +17,33 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void add(User user) {
-        userDao.add(user);
+    public boolean add(User user) {
+        if (containsByName(user.getName())) {
+            return false;
+        } else {
+            userDao.add(user);
+            return true;
+        }
     }
 
     @Override
-    public void deleteById(long id) {
-        userDao.deleteById(id);
+    public boolean deleteById(long id) {
+        if (containsById(id)) {
+            userDao.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
-    public void deleteByName(String name) {
-        userDao.deleteByName(name);
+    public boolean deleteByName(String name) {
+        if (containsByName(name)) {
+            userDao.deleteByName(name);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -56,8 +72,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUserByName(long id, String name) {
-        userDao.updateUserByName(id, name);
+    public void updateByName(long id, String name) {
+        userDao.updateByName(id, name);
     }
 
     @Override
