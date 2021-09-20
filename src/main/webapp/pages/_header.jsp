@@ -24,7 +24,7 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hello ${sessionScope.user.name}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Create post</a>
+                    <a class="nav-link" href="/FeedBlog_war/posts/save">Create post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/FeedBlog_war/users/account">Account</a>
@@ -38,7 +38,7 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hello ${sessionScope.user.name}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Create post</a>
+                    <a class="nav-link" href="/FeedBlog_war/posts/save">Create post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/FeedBlog_war/users/account">Account</a>
@@ -53,12 +53,12 @@
                             Post
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/post/create">Create post</a>
-                            <a class="dropdown-item" href="/post/deletePostById">Delete by id</a>
-                            <a class="dropdown-item" href="/post/deletePostByTitle">Delete by title</a>
-                            <a class="dropdown-item" href="/post/getAllPosts">Get all</a>
-                            <a class="dropdown-item" href="/post/getPostById">Get by id</a>
-                            <a class="dropdown-item" href="/post/getPostByTitle">Get by title</a>
+                            <a class="dropdown-item" href="/FeedBlog_war/posts/save">Create post</a>
+                            <a class="dropdown-item" href="/FeedBlog_war/posts/deleteById">Delete by id</a>
+                            <a class="dropdown-item" href="/FeedBlog_war/posts/deleteByTitle">Delete by title</a>
+                            <a class="dropdown-item" href="/FeedBlog_war/posts/findAll">Find all</a>
+                            <a class="dropdown-item" href="/FeedBlog_war/posts/findById">Find by id</a>
+                            <a class="dropdown-item" href="/FeedBlog_war/posts/findByTitle">Find by title</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

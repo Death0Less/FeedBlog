@@ -19,18 +19,33 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void add(Post post) {
-        postDao.add(post);
+    public boolean add(Post post) {
+        if (containsByTitle(post.getTitle())) {
+            return false;
+        } else {
+            postDao.add(post);
+            return true;
+        }
     }
 
     @Override
-    public void deleteById(long id) {
-        postDao.deleteById(id);
+    public boolean deleteById(long id) {
+        if (containsById(id)) {
+            postDao.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
-    public void deleteByTitle(String title) {
-        postDao.deleteByTitle(title);
+    public boolean deleteByTitle(String title) {
+        if (containsByTitle(title)) {
+            postDao.deleteByTitle(title);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -59,32 +74,19 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post findByUser(User user) {
-        return postDao.findByUser(user);
+    public void updateTag(long id, Tag tag) {
+        postDao.updateTag(id, tag);
     }
 
     @Override
-    public void deleteByUser(User user) {
-        postDao.deleteByUser(user);
+    public void updateDescription(long id, String description) {
+        postDao.updateDescription(id, description);
     }
 
     @Override
-    public Post findByCategory(Category category) {
-        return postDao.findByCategory(category);
+    public void updateCategory(long id, Category category) {
+        postDao.updateCategory(id, category);
     }
 
-    @Override
-    public void deleteByCategory(Category category) {
-        postDao.deleteByCategory(category);
-    }
 
-    @Override
-    public Post findByTag(Tag tag) {
-        return postDao.findByTag(tag);
-    }
-
-    @Override
-    public void deleteByTag(Tag tag) {
-        postDao.deleteByTag(tag);
-    }
 }

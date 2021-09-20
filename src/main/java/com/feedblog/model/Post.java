@@ -31,4 +31,25 @@ public class Post {
 
     private int countViews;
 
+    public Post(String title, String description, User user, Category category, Tag tag, Date date) {
+        this.title = title;
+        this.description = description;
+        this.user = user;
+        this.category = category;
+        this.tag = tag;
+        this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", user=" + user +
+                ", category=" + category +
+                ", tag=" + tag +
+                ", date=" + date +
+                '}';
+    }
 }
