@@ -22,42 +22,22 @@ public class InMemoryUserDao implements UserDao {
 
     @Override
     public void deleteById(long id) {
-        for (User user : userList) {
-            if (user.getId() == id) {
-                userList.remove(user);
-                break;
-            }
-        }
+        userList.removeIf(user -> user.getId() == id);
     }
 
     @Override
     public void deleteByName(String name) {
-        for (User user : userList) {
-            if (user.getName().equals(name)) {
-                userList.remove(user);
-                break;
-            }
-        }
+        userList.removeIf(user -> user.getName().equals(name));
     }
 
     @Override
     public User findById(long id) {
-        for (User user : userList) {
-            if (user.getId() == id) {
-                return user;
-            }
-        }
-        return null;
+        return userList.stream().filter(user -> user.getId() == id).findAny().orElse(null);
     }
 
     @Override
     public User findByName(String name) {
-        for (User user : userList) {
-            if (user.getName().equals(name)) {
-                return user;
-            }
-        }
-        return null;
+        return userList.stream().filter(user -> user.getName().equals(name)).findAny().orElse(null);
     }
 
     @Override
@@ -67,51 +47,26 @@ public class InMemoryUserDao implements UserDao {
 
     @Override
     public boolean containsById(long id) {
-        for (User user : userList) {
-            if (user.getId() == id) {
-                return true;
-            }
-        }
-        return false;
+        return userList.stream().anyMatch(user -> user.getId() == id);
     }
 
     @Override
     public boolean containsByName(String name) {
-        for (User user : userList) {
-            if (user.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
+        return userList.stream().anyMatch(user -> user.getName().equals(name));
     }
 
     @Override
     public void updateByName(long id, String name) {
-        for (User user : userList) {
-            if (user.getId() == id) {
-                user.setName(name);
-                break;
-            }
-        }
+        userList.stream().filter(user -> user.getId() == id).forEach(user -> user.setName(name));
     }
 
     @Override
     public void updateByEmail(long id, String email) {
-        for (User user : userList) {
-            if (user.getId() == id) {
-                user.setEmail(email);
-                break;
-            }
-        }
+        userList.stream().filter(user -> user.getId() == id).forEach(user -> user.setEmail(email));
     }
 
     @Override
     public void updateByPassword(long id, String password) {
-        for (User user : userList) {
-            if (user.getId() == id) {
-                user.setPassword(password);
-                break;
-            }
-        }
+        userList.stream().filter(user -> user.getId() == id).forEach(user -> user.setPassword(password));
     }
 }

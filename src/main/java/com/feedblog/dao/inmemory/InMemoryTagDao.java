@@ -22,42 +22,22 @@ public class InMemoryTagDao implements TagDao {
 
     @Override
     public void deleteById(long id) {
-        for (Tag tag : tagList) {
-            if (tag.getId() == id) {
-                tagList.remove(tag);
-                break;
-            }
-        }
+        tagList.removeIf(tag -> tag.getId() == id);
     }
 
     @Override
     public void deleteByName(String name) {
-        for (Tag tag : tagList) {
-            if (tag.getTagName().equals(name)) {
-                tagList.remove(tag);
-                break;
-            }
-        }
+        tagList.removeIf(tag -> tag.getTagName().equals(name));
     }
 
     @Override
     public Tag findById(long id) {
-        for (Tag tag : tagList) {
-            if (tag.getId() == id) {
-                return tag;
-            }
-        }
-        return null;
+        return tagList.stream().filter(tag -> tag.getId() == id).findAny().orElse(null);
     }
 
     @Override
     public Tag findByName(String name) {
-        for (Tag tag : tagList) {
-            if (tag.getTagName().equals(name)) {
-                return tag;
-            }
-        }
-        return null;
+        return tagList.stream().filter(tag -> tag.getTagName().equals(name)).findAny().orElse(null);
     }
 
     @Override
@@ -67,21 +47,11 @@ public class InMemoryTagDao implements TagDao {
 
     @Override
     public boolean containsById(long id) {
-        for (Tag tag : tagList) {
-            if (tag.getId() == id) {
-                return true;
-            }
-        }
-        return false;
+        return tagList.stream().anyMatch(tag -> tag.getId() == id);
     }
 
     @Override
     public boolean containsByName(String name) {
-        for (Tag tag : tagList) {
-            if (tag.getTagName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
+        return tagList.stream().anyMatch(tag -> tag.getTagName().equals(name));
     }
 }

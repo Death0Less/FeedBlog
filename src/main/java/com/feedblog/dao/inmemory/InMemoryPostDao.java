@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class InMemoryPostDao implements PostDao {
@@ -25,42 +26,22 @@ public class InMemoryPostDao implements PostDao {
 
     @Override
     public void deleteById(long id) {
-        for (Post post : postList) {
-            if (post.getId() == id) {
-                postList.remove(post);
-                break;
-            }
-        }
+        postList.removeIf(post -> post.getId() == id);
     }
 
     @Override
     public void deleteByTitle(String title) {
-        for (Post post : postList) {
-            if (post.getTitle().equals(title)) {
-                postList.remove(post);
-                break;
-            }
-        }
+        postList.removeIf(post -> post.getTitle().equals(title));
     }
 
     @Override
     public Post findById(long id) {
-        for (Post post : postList) {
-            if (post.getId() == id) {
-                return post;
-            }
-        }
-        return null;
+        return postList.stream().filter(post -> post.getId() == id).findAny().orElse(null);
     }
 
     @Override
     public Post findByTitle(String title) {
-        for (Post post : postList) {
-            if (post.getTitle().equals(title)) {
-                return post;
-            }
-        }
-        return null;
+        return postList.stream().filter(post -> post.getTitle().equals(title)).findAny().orElse(null);
     }
 
     @Override
@@ -70,50 +51,28 @@ public class InMemoryPostDao implements PostDao {
 
     @Override
     public boolean containsById(long id) {
-        for (Post post : postList) {
-            if (post.getId() == id) {
-                return true;
-            }
-        }
-        return false;
+        return postList.stream().anyMatch(post -> post.getId() == id);
     }
 
     @Override
     public boolean containsByTitle(String title) {
-        for (Post post : postList) {
-            if (post.getTitle().equals(title)) {
-                return true;
-            }
-        }
-        return false;
+        return postList.stream().anyMatch(post -> post.getTitle().equals(title));
     }
 
     @Override
     public void updateDescription(long id, String description) {
-        for (Post post : postList) {
-            if (post.getId() == id) {
-                post.setDescription(description);
-            }
-        }
+        postList.stream().filter(post -> post.getId() == id).forEach(post -> post.setDescription(description));
     }
 
     @Override
     public void updateCategory(long id, Category category) {
-        for (Post post : postList) {
-            if (post.getId() == id) {
-                post.setCategory(category);
-            }
-        }
+        postList.stream().filter(post -> post.getId() == id).forEach(post -> post.setCategory(category));
     }
 
 
     @Override
     public void updateTag(long id, Tag tag) {
-        for (Post post : postList) {
-            if (post.getId() == id) {
-                post.setTag(tag);
-            }
-        }
+        postList.stream().filter(post -> post.getId() == id).forEach(post -> post.setTag(tag));
     }
 
 }
