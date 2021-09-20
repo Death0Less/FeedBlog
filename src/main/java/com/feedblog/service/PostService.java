@@ -9,19 +9,16 @@ import java.util.List;
 
 public interface PostService {
 
-    void add(Post post);
-    void deleteById(long id);
-    void deleteByTitle(String title);
+    boolean add(Post post);
+    boolean deleteById(long id);
+    boolean deleteByTitle(String title);
     Post findById(long id);
     Post findByTitle(String title);
     List<Post> findAll();
     boolean containsById(long id);
     boolean containsByTitle(String title);
+    void updateTag(long id, Tag tag);
+    void updateDescription(long id, String description);
+    void updateCategory(long id, Category category);
 
-    Post findByUser(User user);
-    void deleteByUser(User user);
-    Post findByCategory(Category category);
-    void deleteByCategory(Category category);
-    Post findByTag(Tag tag);
-    void deleteByTag(Tag tag);
 }

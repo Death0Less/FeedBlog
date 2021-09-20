@@ -89,58 +89,29 @@ public class InMemoryPostDao implements PostDao {
     }
 
     @Override
-    public Post findByUser(User user) {
+    public void updateDescription(long id, String description) {
         for (Post post : postList) {
-            if (post.getUser().getName().equals(user.getName())) {
-                return post;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public void deleteByUser(User user) {
-        for (Post post : postList) {
-            if (post.getUser().getName().equals(user.getName())) {
-                postList.remove(post);
+            if (post.getId() == id) {
+                post.setDescription(description);
             }
         }
     }
 
     @Override
-    public Post findByCategory(Category category) {
+    public void updateCategory(long id, Category category) {
         for (Post post : postList) {
-            if (post.getCategory().getCategoryName().equals(category.getCategoryName())) {
-                return post;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public void deleteByCategory(Category category) {
-        for (Post post : postList) {
-            if (post.getCategory().getCategoryName().equals(category.getCategoryName())) {
-                postList.remove(post);
+            if (post.getId() == id) {
+                post.setCategory(category);
             }
         }
     }
 
-    @Override
-    public Post findByTag(Tag tag) {
-        for (Post post : postList) {
-            if (post.getTag().getTagName().equals(tag.getTagName())) {
-                return post;
-            }
-        }
-        return null;
-    }
 
     @Override
-    public void deleteByTag(Tag tag) {
+    public void updateTag(long id, Tag tag) {
         for (Post post : postList) {
-            if (post.getTag().getTagName().equals(tag.getTagName())) {
-                postList.remove(post);
+            if (post.getId() == id) {
+                post.setTag(tag);
             }
         }
     }
