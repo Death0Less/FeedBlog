@@ -21,42 +21,22 @@ public class InMemoryCategoryDao implements CategoryDao {
 
     @Override
     public void deleteById(long id) {
-        for (Category category : categoryList) {
-            if (category.getId() == id) {
-                categoryList.remove(category);
-                break;
-            }
-        }
+        categoryList.removeIf(category -> category.getId() == id);
     }
 
     @Override
     public void deleteByTitle(String title) {
-        for (Category category : categoryList) {
-            if (category.getCategoryName().equals(title)) {
-                categoryList.remove(category);
-                break;
-            }
-        }
+        categoryList.removeIf(category -> category.getCategoryName().equals(title));
     }
 
     @Override
     public Category findById(long id) {
-        for (Category category : categoryList) {
-            if (category.getId() == id) {
-                return category;
-            }
-        }
-        return null;
+       return categoryList.stream().filter(category -> category.getId() == id).findAny().orElse(null);
     }
 
     @Override
     public Category findByTitle(String title) {
-        for (Category category : categoryList) {
-            if (category.getCategoryName().equals(title)) {
-                return category;
-            }
-        }
-        return null;
+        return categoryList.stream().filter(category -> category.getCategoryName().equals(title)).findAny().orElse(null);
     }
 
     @Override
@@ -66,21 +46,11 @@ public class InMemoryCategoryDao implements CategoryDao {
 
     @Override
     public boolean containsById(long id) {
-        for (Category category : categoryList) {
-            if (category.getId() == id) {
-                return true;
-            }
-        }
-        return false;
+        return categoryList.stream().anyMatch(category -> category.getId() == id);
     }
 
     @Override
     public boolean containsByTitle(String title) {
-        for (Category category : categoryList) {
-            if (category.getCategoryName().equals(title)) {
-                return true;
-            }
-        }
-        return false;
+        return categoryList.stream().anyMatch(category -> category.getCategoryName().equals(title));
     }
 }
