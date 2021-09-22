@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
 public class InMemoryCategoryDao implements CategoryDao {
 
     private final List<Category> categoryList = new ArrayList<>();

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
 public class InMemoryCommentDao implements CommentDao {
 
     private final List<Comment> commentList = new ArrayList<>();

@@ -22,21 +22,6 @@
             <li class="nav-item">
                 <a class="nav-link active" href="/user/userPosts">Posts</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/user/bookmarks">Bookmarks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/user/history">History</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/user/subscriptions">Subscriptions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/user/followers">Followers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/user/requests">Requests</a>
-            </li>
         </ul>
     </div>
     <div class="card-body">
